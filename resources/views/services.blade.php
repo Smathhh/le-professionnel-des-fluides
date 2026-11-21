@@ -27,60 +27,52 @@
 
 <!-- Main Services Listing -->
 <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         @foreach($services as $service)
-        <div class="tf-surface tf-surface-hover rounded-3xl p-8 flex flex-col justify-between">
+        @php
+            $imgKey = $service->icon ?: 'circuit';
+            $imgPath = file_exists(public_path("images/services/{$imgKey}.svg")) ? "images/services/{$imgKey}.svg" : "images/services/circuit.svg";
+        @endphp
+        <div class="tf-surface tf-surface-hover rounded-3xl overflow-hidden flex flex-col justify-between">
             <div>
-                <div class="flex items-start justify-between gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 text-sky-600 flex items-center justify-center shrink-0">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <span class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200">
-                        Intervention 7j/7
+                <div class="relative aspect-[16/9] bg-[#1E2430] overflow-hidden border-b border-slate-200/80">
+                    <img src="{{ asset($imgPath) }}" alt="{{ $service->name }}" class="w-full h-full object-cover">
+                    <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 bg-emerald-500/90 text-white rounded-full shadow">
+                        7j/7
                     </span>
                 </div>
 
-                <h2 class="text-2xl font-extrabold text-slate-950 mb-2">{{ $service->name }}</h2>
+                <div class="p-6">
+                    <h2 class="text-lg font-extrabold text-slate-950 mb-1.5 leading-snug">{{ $service->name }}</h2>
 
-                @if($service->name_ar)
-                    <p class="text-sm font-bold text-slate-400 mb-4" dir="rtl">{{ $service->name_ar }}</p>
-                @endif
+                    @if($service->name_ar)
+                        <p class="text-xs font-bold text-slate-400 mb-3" dir="rtl">{{ $service->name_ar }}</p>
+                    @endif
 
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">{{ $service->description }}</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-5">{{ $service->description }}</p>
 
-                @if($service->description_ar)
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100" dir="rtl">
-                        {{ $service->description_ar }}
-                    </p>
-                @endif
-
-                <div class="space-y-2.5 mb-8">
-                    <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                        <span class="w-5 h-5 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">✓</span>
-                        <span>Diagnostic technique complet &amp; rapport d'intervention</span>
-                    </div>
-                    <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                        <span class="w-5 h-5 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">✓</span>
-                        <span>Pièces de rechange certifiées et garanties</span>
-                    </div>
-                    <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                        <span class="w-5 h-5 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">✓</span>
-                        <span>Assistance d'urgence disponible sous 1 heure</span>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#C81E2B] flex items-center justify-center shrink-0">✓</span>
+                            <span>Diagnostic complet &amp; pièces certifiées</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#C81E2B] flex items-center justify-center shrink-0">✓</span>
+                            <span>Intervention rapide sur site ou en atelier</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+            <div class="px-6 pb-6 pt-3 border-t border-slate-100 flex gap-2.5">
                 <a href="https://wa.me/{{ $rawWhatsapp }}?text={{ urlencode('Bonjour, je souhaite commander ou avoir un devis pour le service : ' . $service->name) }}"
                    target="_blank"
-                   class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl transition text-sm">
-                    <span>Demander sur WhatsApp</span>
+                   class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition text-xs">
+                    <span>WhatsApp</span>
                 </a>
                 <a href="{{ route('contact') }}"
-                   class="inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 px-5 rounded-xl transition text-sm">
-                    Devis en ligne
+                   class="inline-flex items-center justify-center bg-[#1E2430] hover:bg-[#C81E2B] text-white font-bold py-3 px-4 rounded-xl transition text-xs">
+                    Devis
                 </a>
             </div>
         </div>

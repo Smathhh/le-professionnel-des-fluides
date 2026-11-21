@@ -196,35 +196,32 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         @foreach($services as $service)
-        <div class="tf-surface tf-surface-hover rounded-3xl p-7 flex flex-col justify-between">
+        @php
+            $imgKey = $service->icon ?: 'circuit';
+            $imgPath = file_exists(public_path("images/services/{$imgKey}.svg")) ? "images/services/{$imgKey}.svg" : "images/services/circuit.svg";
+        @endphp
+        <div class="tf-surface tf-surface-hover rounded-3xl overflow-hidden flex flex-col justify-between">
             <div>
-                <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 text-[#C81E2B] flex items-center justify-center mb-6">
-                    @if(str_contains(strtolower($service->icon ?? ''), 'elect') || str_contains(strtolower($service->name), 'lectr'))
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    @elseif(str_contains(strtolower($service->icon ?? ''), 'plumb') || str_contains(strtolower($service->name), 'plomb'))
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
-                    @elseif(str_contains(strtolower($service->icon ?? ''), 'hvac') || str_contains(strtolower($service->name), 'clim'))
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
-                    @else
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    @endif
+                <div class="aspect-[16/9] bg-[#1E2430] overflow-hidden border-b border-slate-100">
+                    <img src="{{ asset($imgPath) }}" alt="{{ $service->name }}" class="w-full h-full object-cover">
                 </div>
+                <div class="p-6">
+                    <h3 class="text-base font-extrabold text-slate-900 mb-2 leading-snug">{{ $service->name }}</h3>
 
-                <h3 class="text-lg font-extrabold text-slate-900 mb-2">{{ $service->name }}</h3>
+                    @if($service->name_ar)
+                        <p class="text-xs font-semibold text-slate-400 mb-2.5" dir="rtl">{{ $service->name_ar }}</p>
+                    @endif
 
-                @if($service->name_ar)
-                    <p class="text-xs font-semibold text-slate-400 mb-3" dir="rtl">{{ $service->name_ar }}</p>
-                @endif
-
-                <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                    {{ Str::limit($service->description, 115) }}
-                </p>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        {{ Str::limit($service->description, 105) }}
+                    </p>
+                </div>
             </div>
 
-            <div class="pt-4 border-t border-slate-100">
+            <div class="px-6 pb-6 pt-3 border-t border-slate-100">
                 <a href="https://wa.me/{{ $rawWhatsapp }}?text={{ urlencode('Bonjour, je souhaite un devis pour : ' . $service->name) }}"
                    target="_blank"
-                   class="inline-flex items-center justify-center gap-2 w-full bg-slate-950 hover:bg-emerald-600 text-white py-2.5 px-4 rounded-xl text-xs font-bold transition">
+                   class="inline-flex items-center justify-center gap-2 w-full bg-[#1E2430] hover:bg-[#C81E2B] text-white py-2.5 px-4 rounded-xl text-xs font-bold transition">
                     <span>Devis via WhatsApp</span>
                     <span>→</span>
                 </a>
@@ -252,7 +249,7 @@
 
         <!-- Category Filter Chips -->
         <div class="flex flex-wrap items-center gap-2 mb-8" id="home-product-filters">
-            <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-slate-950 text-white transition" data-filter="all">
+            <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-[#1E2430] text-white transition" data-filter="all">
                 Tous les produits
             </button>
             <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="hydraulique">
@@ -261,11 +258,14 @@
             <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="pneumatique">
                 Pneumatique
             </button>
-            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="pompes">
-                Pompes &amp; Vérins
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="pompe">
+                Électro-pompes &amp; Centrales
             </button>
-            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="pieces">
-                Pièces &amp; Flexibles
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="verin">
+                Vérins &amp; Accumulateurs
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-filter="mecanique">
+                Mécanique &amp; Usinage
             </button>
         </div>
 

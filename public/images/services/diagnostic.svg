@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 210" fill="none">
+  <defs>
+    <linearGradient id="bg_diagnostic" x1="0" y1="0" x2="400" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E2430"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <pattern id="grid_diagnostic" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="210" fill="url(#bg_diagnostic)"/>
+  <rect width="400" height="210" fill="url(#grid_diagnostic)"/>
+  <rect x="0" y="204" width="400" height="6" fill="#C81E2B"/>
+  <circle cx='200' cy='95' r='48' fill='#0F172A' stroke='#94A3B8' stroke-width='4'/><circle cx='200' cy='95' r='36' fill='none' stroke='#C81E2B' stroke-width='4' stroke-dasharray='140 80'/><line x1='200' y1='95' x2='228' y2='67' stroke='#F43F5E' stroke-width='5' stroke-linecap='round'/><circle cx='200' cy='95' r='7' fill='#FFFFFF'/>
+  <text x="200" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.2" fill="#FFFFFF">DIAGNOSTIC DES PANNES HYDRAULIQUES</text>
+  <text x="200" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="9.5" fill="#94A3B8">Contrôle Pression • Débit • Étanchéité</text>
+</svg>

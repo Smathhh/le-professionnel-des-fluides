@@ -1,17 +1,21 @@
 package com.phemindustrie.admin;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -89,8 +93,27 @@ public class MainActivity extends Activity {
                 FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
 
         setContentView(root);
-
+        requestAppPermissions();
         loadAppUrl();
+    }
+
+    private void requestAppPermissions() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 2001);
+            }
+        }
+    }
+
+    private boolean isNetworkAvailable() {
+        try {
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm != null) {
+                NetworkInfo info = cm.getActiveNetworkInfo();
+                return info != null && info.isConnected();
+            }
+        } catch (Exception ignored) {}
+        return true;
     }
 
     private void configureWebView(WebView view) {
@@ -110,7 +133,7 @@ public class MainActivity extends Activity {
         if (!cacheDir.exists()) {
             cacheDir.mkdirs();
         }
-        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        settings.setCacheMode(isNetworkAvailable() ? WebSettings.LOAD_DEFAULT : WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
         view.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -130,12 +153,13 @@ public class MainActivity extends Activity {
                 }
                 fileUploadCallback = filePathCallback;
 
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("image/*");
-                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
+                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                galleryIntent.addCategory(Intent.CATEGORY_OPENABLE);
+                galleryIntent.setType("image/*");
 
-                Intent chooser = Intent.createChooser(intent, "Prendre une Photo ou Choisir Image");
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent chooser = Intent.createChooser(galleryIntent, "Photo ou Galerie");
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{cameraIntent});
                 startActivityForResult(chooser, FILE_CHOOSER_REQUEST);
                 return true;
             }

@@ -27,42 +27,87 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // Core Hydraulic & Pneumatic Maintenance Services
+        // Official 9 PHEM INDUSTRIE S.A.R.L Services
         $services = [
             [
-                'name' => 'Maintenance Hydraulique Industrielle',
-                'name_ar' => 'الصيانة الهيدروليكية الصناعية',
-                'description' => 'Diagnostic, réparation et entretien de centrales hydrauliques, pompes, vérins, distributeurs et flexibles haute pression.',
-                'description_ar' => 'تشخيص وإصلاح وصيانة المحطات الهيدروليكية والمضخات والأسطوانات والموزعات.',
-                'icon' => 'hydraulic',
+                'name' => 'Installation des Circuits Hydrauliques et Pneumatiques',
+                'name_ar' => 'تركيب الدوائر الهيدروليكية والهوائية',
+                'description' => 'Étude, pose et mise en service de réseaux et circuits hydrauliques et pneumatiques haute et basse pression pour l\'industrie.',
+                'description_ar' => 'دراسة وتركيب وتشغيل الشبكات والدوائر الهيدروليكية والهوائية الصناعية.',
+                'icon' => 'circuit',
                 'order' => 1,
                 'is_active' => true
             ],
             [
-                'name' => 'Maintenance Pneumatique & Air Comprimé',
-                'name_ar' => 'الصيانة الهوائية والهواء المضغوط',
-                'description' => 'Entretien et dépannage de compresseurs, vérins pneumatiques, électrovannes, filtres régulateurs et réseaux d\'air comprimé.',
-                'description_ar' => 'صيانة وإصلاح الضواغط والأسطوانات الهوائية والصمامات وشبكات الهواء المضغوط.',
-                'icon' => 'pneumatic',
+                'name' => 'Diagnostic des Pannes Hydrauliques',
+                'name_ar' => 'تشخيص الأعطال الهيدروليكية',
+                'description' => 'Contrôle de pression, débitmétrie, détection de fuites internes et identification rapide des pannes sur machines hydrauliques.',
+                'description_ar' => 'فحص الضغط والتدفق وكشف التسربات وتحديد الأعطال بسرعة ودقة.',
+                'icon' => 'diagnostic',
                 'order' => 2,
                 'is_active' => true
             ],
             [
-                'name' => 'Révision de Machines Hydrauliques & Pneumatiques',
-                'name_ar' => 'إصلاح وتجديد الآلات الهيدروليكية والهوائية',
-                'description' => 'Remise en état complète de presses, engins, machines de production et équipements industriels pneumatiques et hydrauliques.',
-                'description_ar' => 'إصلاح شامل للمكابس والمعدات الصناعية الهيدروليكية والهوائية.',
-                'icon' => 'machinery',
+                'name' => 'Réparation des Électro-Pompes Hydrauliques',
+                'name_ar' => 'إصلاح المضخات الكهربائية الهيدروليكية',
+                'description' => 'Révision, remise en état et test sur banc de toutes électro-pompes hydrauliques (à pistons, à palettes et à engrenages).',
+                'description_ar' => 'إصلاح وتجديد واختبار جميع المضخات الهيدروليكية.',
+                'icon' => 'electropompe',
                 'order' => 3,
                 'is_active' => true
             ],
             [
-                'name' => 'Contrats de Maintenance Préventive',
-                'name_ar' => 'عقود الصيانة الوقائية',
-                'description' => 'Suivi périodique, contrôle de pression, analyse d\'huile hydraulique et prévention des pannes sur toutes vos machines.',
-                'description_ar' => 'متابعة دورية وفحص الضغط والزيوت للوقاية من الأعطال.',
-                'icon' => 'preventive',
+                'name' => 'Confection des Centrales et Vérins Hydrauliques',
+                'name_ar' => 'تصنيع المحطات والأسطوانات الهيدروليكية',
+                'description' => 'Conception et fabrication sur mesure de centrales hydrauliques industrielles et vérins adaptés à vos cahiers des charges.',
+                'description_ar' => 'تصميم وتصنيع المحطات والأسطوانات الهيدروليكية حسب الطلب.',
+                'icon' => 'centrale',
                 'order' => 4,
+                'is_active' => true
+            ],
+            [
+                'name' => 'Réparation des Vérins Hydrauliques et Pneumatiques',
+                'name_ar' => 'إصلاح الأسطوانات الهيدروليكية والهوائية',
+                'description' => 'Remplacement de joints haute pression, chromage ou fabrication de tiges, honage de fûts et essais d\'étanchéité.',
+                'description_ar' => 'تبديل موانع التسرب وإصلاح وتجديد الأسطوانات الهيدروليكية والهوائية.',
+                'icon' => 'verin',
+                'order' => 5,
+                'is_active' => true
+            ],
+            [
+                'name' => 'Gonflage et Réparation des Accumulateurs',
+                'name_ar' => 'شحن وإصلاح المراكم الهيدروليكية',
+                'description' => 'Contrôle de pression, gonflage à l\'azote (N2) et remplacement des vessies et membranes d\'accumulateurs hydrauliques.',
+                'description_ar' => 'فحص وشحن المراكم بغاز النيتروجين وتبديل الأغشية.',
+                'icon' => 'accumulateur',
+                'order' => 6,
+                'is_active' => true
+            ],
+            [
+                'name' => 'Entretien et Réparation Mécanique',
+                'name_ar' => 'الصيانة والإصلاح الميكانيكي',
+                'description' => 'Maintenance préventive et corrective des ensembles mécaniques, réducteurs, transmissions et machines de production.',
+                'description_ar' => 'الصيانة الوقائية والتصحيحية للمعدات والآلات الميكانيكية.',
+                'icon' => 'mecanique',
+                'order' => 7,
+                'is_active' => true
+            ],
+            [
+                'name' => 'Fournitures des Composants Hydrauliques et Pneumatiques',
+                'name_ar' => 'توريد المكونات الهيدروليكية والهوائية',
+                'description' => 'Vente de pompes, distributeurs, électrovannes, manomètres, flexibles, raccords et composants certifiés disponibles en stock.',
+                'description_ar' => 'توفير المضخات والموزعات والصمامات والخراطيم والمكونات الصناعية.',
+                'icon' => 'composants',
+                'order' => 8,
+                'is_active' => true
+            ],
+            [
+                'name' => 'Usinage et Fabrication Mécanique',
+                'name_ar' => 'الخراطة والتفريز والتصنيع الميكانيكي',
+                'description' => 'Tournage, fraisage et fabrication de pièces mécaniques de précision sur plan ou sur modèle pour l\'industrie.',
+                'description_ar' => 'الخراطة والتفريز وتصنيع القطع الميكانيكية الدقيقة حسب الطلب.',
+                'icon' => 'usinage',
+                'order' => 9,
                 'is_active' => true
             ]
         ];

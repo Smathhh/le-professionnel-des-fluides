@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 210" fill="none">
+  <defs>
+    <linearGradient id="bg_verin" x1="0" y1="0" x2="400" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E2430"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <pattern id="grid_verin" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="210" fill="url(#bg_verin)"/>
+  <rect width="400" height="210" fill="url(#grid_verin)"/>
+  <rect x="0" y="204" width="400" height="6" fill="#C81E2B"/>
+  <rect x='75' y='72' width='150' height='46' rx='6' fill='#334155' stroke='#94A3B8' stroke-width='3'/><rect x='225' y='85' width='105' height='20' rx='4' fill='#E2E8F0'/><circle cx='335' cy='95' r='14' fill='#C81E2B'/><rect x='95' y='72' width='16' height='46' fill='#C81E2B'/>
+  <text x="200" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.2" fill="#FFFFFF">RÉPARATION VÉRINS HYD. & PNEU.</text>
+  <text x="200" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="9.5" fill="#94A3B8">Tiges Chromées • Joints • Alésage</text>
+</svg>
