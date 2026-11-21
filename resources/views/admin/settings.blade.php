@@ -39,10 +39,10 @@
                 </div>
                 <input type="text" name="whatsapp" required
                        class="w-full px-4 py-3 bg-white border border-emerald-300 rounded-xl text-slate-900 font-bold text-base focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
-                       placeholder="+212666569562"
-                       value="{{ old('whatsapp', $settings['whatsapp'] ?? '+212666569562') }}">
+                       placeholder="+212661533025"
+                       value="{{ old('whatsapp', $settings['whatsapp'] ?? '+212661533025') }}">
                 <p class="text-[11px] text-emerald-700 mt-2">
-                    Format international recommandé : <strong>+212666569562</strong>. Les liens directs générés ouvriront la discussion WhatsApp avec ce numéro.
+                    Format international recommandé : <strong>+212661533025</strong>. Les liens directs générés ouvriront la discussion WhatsApp avec ce numéro.
                 </p>
             </div>
 
@@ -52,16 +52,16 @@
                     <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Numéro Téléphone d'Appel Direct *</label>
                     <input type="text" name="phone" required
                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
-                           placeholder="+212 666-569562"
-                           value="{{ old('phone', $settings['phone'] ?? '+212 666-569562') }}">
+                           placeholder="0661533025"
+                           value="{{ old('phone', $settings['phone'] ?? '0661533025') }}">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Courrier Électronique (Email) *</label>
                     <input type="email" name="email" required
                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
-                           placeholder="contact@phemindustrie.ma"
-                           value="{{ old('email', $settings['email'] ?? 'contact@phemindustrie.ma') }}">
+                           placeholder="phemindustrie20@gmail.com"
+                           value="{{ old('email', $settings['email'] ?? 'phemindustrie20@gmail.com') }}">
                 </div>
             </div>
 

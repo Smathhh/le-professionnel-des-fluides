@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
 
         // Settings from official PHEM INDUSTRIE S.A.R.L letterhead
         Setting::updateOrCreate(['key' => 'site_name'], ['value' => 'PHEM INDUSTRIE S.A.R.L']);
-        Setting::updateOrCreate(['key' => 'phone'], ['value' => '06 61 53 30 25']);
+        Setting::updateOrCreate(['key' => 'phone'], ['value' => '0661533025']);
         Setting::updateOrCreate(['key' => 'fax'], ['value' => '05 22 76 71 17']);
         Setting::updateOrCreate(['key' => 'whatsapp'], ['value' => '+212661533025']);
         Setting::updateOrCreate(['key' => 'email'], ['value' => 'phemindustrie20@gmail.com']);

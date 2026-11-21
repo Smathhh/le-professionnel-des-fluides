@@ -97,7 +97,7 @@
         <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between">
             <span class="text-xs text-slate-500">Numéro WhatsApp actuel du site :</span>
             <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-                {{ \App\Models\Setting::get('whatsapp', '+212666569562') }}
+                {{ \App\Models\Setting::get('whatsapp', '+212661533025') }}
             </span>
         </div>
     </div>

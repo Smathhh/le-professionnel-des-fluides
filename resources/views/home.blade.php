@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $rawWhatsapp = preg_replace('/[^0-9]/', '', \App\Models\Setting::get('whatsapp', '212666569562')) ?: '212666569562';
-    $displayPhone = \App\Models\Setting::get('phone', '+212 666-569562');
-    $displayWhatsapp = \App\Models\Setting::get('whatsapp', '+212 666-569562');
+    $rawWhatsapp = preg_replace('/[^0-9]/', '', \App\Models\Setting::get('whatsapp', '212661533025')) ?: '212661533025';
+    $displayPhone = \App\Models\Setting::get('phone', '0661533025');
+    $displayWhatsapp = \App\Models\Setting::get('whatsapp', '0661533025');
     $siteName = \App\Models\Setting::get('site_name', 'LE PROFESSIONNEL DES FLUIDES');
 @endphp
 
