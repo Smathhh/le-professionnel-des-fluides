@@ -20,7 +20,7 @@
                 </div>
 
                 <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.03em] leading-[1.06] text-slate-950 mb-6">
-                    Maintenance de Machines <span class="text-sky-600">Hydrauliques</span> &amp; Pneumatiques
+                    Maintenance de Machines <span class="text-[#C81E2B]">Hydrauliques</span> &amp; Pneumatiques
                 </h1>
 
                 <p class="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed mx-auto lg:mx-0">
@@ -41,7 +41,7 @@
                     <a href="{{ route('services') }}"
                        class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-bold text-sm sm:text-base px-7 py-4 rounded-2xl border border-slate-200/90 shadow-sm transition">
                         <span>Découvrir les services</span>
-                        <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-[#C81E2B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
@@ -54,7 +54,7 @@
                         <div class="text-xs text-slate-500 mt-0.5">Expertise terrain</div>
                     </div>
                     <div class="tf-surface rounded-2xl p-4 text-left">
-                        <div class="text-xl sm:text-2xl font-extrabold text-sky-600 font-mono">500+</div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-[#C81E2B] font-mono">500+</div>
                         <div class="text-xs text-slate-500 mt-0.5">Chantiers livrés</div>
                     </div>
                     <div class="tf-surface rounded-2xl p-4 text-left">
@@ -86,7 +86,7 @@
 
                         <div class="mt-6 space-y-3.5">
                             <div class="p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 transition flex items-start gap-3.5">
-                                <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+                                <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
                                 </div>
                                 <div>
@@ -138,7 +138,7 @@
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 mb-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="tf-surface tf-surface-hover rounded-2xl p-6 flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-rose-50 text-[#C81E2B] flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
             <div>
@@ -183,12 +183,12 @@
 <section class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-            <span class="text-sky-600 font-bold text-[11px] uppercase tracking-[0.16em]">Expertise &amp; Prestations</span>
+            <span class="text-[#C81E2B] font-bold text-[11px] uppercase tracking-[0.16em]">Expertise &amp; Prestations</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 mt-2">
                 Nos Domaines d'Intervention
             </h2>
         </div>
-        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-sky-600 transition">
+        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-[#C81E2B] transition">
             <span>Tous nos services</span>
             <span>→</span>
         </a>
@@ -198,7 +198,7 @@
         @foreach($services as $service)
         <div class="tf-surface tf-surface-hover rounded-3xl p-7 flex flex-col justify-between">
             <div>
-                <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 text-sky-600 flex items-center justify-center mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 text-[#C81E2B] flex items-center justify-center mb-6">
                     @if(str_contains(strtolower($service->icon ?? ''), 'elect') || str_contains(strtolower($service->name), 'lectr'))
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     @elseif(str_contains(strtolower($service->icon ?? ''), 'plumb') || str_contains(strtolower($service->name), 'plomb'))
@@ -239,13 +239,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-                <span class="text-sky-600 font-bold text-[11px] uppercase tracking-[0.16em]">Matériel &amp; Équipements</span>
+                <span class="text-[#C81E2B] font-bold text-[11px] uppercase tracking-[0.16em]">Matériel &amp; Équipements</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 mt-2">
                     Catalogue Produits
                 </h2>
                 <p class="text-sm sm:text-base text-slate-600 mt-1">Équipements certifiés disponibles en stock avec livraison et installation.</p>
             </div>
-            <a href="{{ route('products') }}" class="inline-flex items-center gap-1.5 text-sky-600 hover:text-sky-700 font-bold text-sm">
+            <a href="{{ route('products') }}" class="inline-flex items-center gap-1.5 text-[#C81E2B] hover:text-[#C81E2B] font-bold text-sm">
                 Voir tout le catalogue ({{ count($products) }}+) →
             </a>
         </div>
@@ -286,7 +286,7 @@
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
                         @else
                             <div class="text-center p-6">
-                                <div class="w-16 h-16 mx-auto rounded-2xl bg-white shadow-sm flex items-center justify-center text-sky-600 mb-2">
+                                <div class="w-16 h-16 mx-auto rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#C81E2B] mb-2">
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                                     </svg>
@@ -319,11 +319,15 @@
                     </div>
                 </div>
 
-                <div class="px-6 pb-6 pt-0">
+                <div class="px-6 pb-6 pt-0 flex flex-col sm:flex-row gap-2.5">
                     <a href="https://wa.me/{{ $rawWhatsapp }}?text={{ urlencode('Bonjour, je souhaite commander ou avoir des détails sur : ' . $product->name . ' (' . number_format($product->price, 2) . ' DH)') }}"
                        target="_blank"
-                       class="inline-flex items-center justify-center gap-2 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition text-sm">
-                        <span>Commander sur WhatsApp</span>
+                       class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition text-xs sm:text-sm">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="{{ route('products.devis', $product) }}"
+                       class="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#1E2430] hover:bg-[#C81E2B] text-white font-bold py-3 px-4 rounded-xl transition text-xs sm:text-sm">
+                        <span>Générer Devis</span>
                     </a>
                 </div>
             </div>
@@ -337,12 +341,12 @@
 <section class="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-            <span class="text-sky-600 font-bold text-[11px] uppercase tracking-[0.16em]">Qualité Démontrée</span>
+            <span class="text-[#C81E2B] font-bold text-[11px] uppercase tracking-[0.16em]">Qualité Démontrée</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 mt-2">
                 Nos Dernières Réalisations
             </h2>
         </div>
-        <a href="{{ route('gallery') }}" class="inline-flex items-center gap-1.5 text-slate-900 hover:text-sky-600 font-bold text-sm">
+        <a href="{{ route('gallery') }}" class="inline-flex items-center gap-1.5 text-slate-900 hover:text-[#C81E2B] font-bold text-sm">
             Voir toute la galerie →
         </a>
     </div>
@@ -354,7 +358,7 @@
                 @if($item->after_image && file_exists(public_path('storage/' . $item->after_image)))
                     <img src="{{ asset('storage/' . $item->after_image) }}" alt="{{ $item->title }}" class="w-full h-full object-cover">
                 @else
-                    <svg class="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <svg class="w-10 h-10 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                 @endif
                 <span class="absolute bottom-3 left-3 text-[11px] font-bold bg-slate-950/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-white border border-white/15">
                     {{ ucfirst($item->category ?? 'Maintenance') }}
@@ -363,7 +367,7 @@
             <div class="p-6">
                 <h3 class="font-bold text-slate-900 text-lg mb-2">{{ $item->title }}</h3>
                 <p class="text-slate-600 text-sm leading-relaxed mb-4">{{ Str::limit($item->description, 100) }}</p>
-                <a href="{{ route('gallery') }}" class="text-sky-600 font-bold text-xs inline-flex items-center gap-1 hover:text-sky-700">
+                <a href="{{ route('gallery') }}" class="text-[#C81E2B] font-bold text-xs inline-flex items-center gap-1 hover:text-[#C81E2B]">
                     Voir les détails →
                 </a>
             </div>
@@ -377,7 +381,7 @@
 <section class="tf-obsidian text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
-            <span class="text-sky-400 font-bold text-[11px] uppercase tracking-[0.16em]">Témoignages Clients</span>
+            <span class="text-rose-400 font-bold text-[11px] uppercase tracking-[0.16em]">Témoignages Clients</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-3">
                 La Confiance de nos Partenaires au Maroc
             </h2>
@@ -437,7 +441,7 @@
     <div class="tf-surface rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden">
         <div class="tf-dots-light absolute inset-0 opacity-60 pointer-events-none"></div>
         <div class="relative z-10 max-w-2xl mx-auto">
-            <span class="inline-block bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-4">
+            <span class="inline-block bg-rose-50 text-[#C81E2B] border border-rose-200 text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-4">
                 Devis Gratuit &amp; Sans Engagement
             </span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 mb-4 tracking-tight">
@@ -483,3 +487,4 @@
     });
 </script>
 @endsection
+

@@ -74,14 +74,21 @@ class DatabaseSeeder extends Seeder
             Service::updateOrCreate(['name' => $srv['name']], $srv);
         }
 
-        // Settings with WhatsApp number
-        Setting::updateOrCreate(['key' => 'site_name'], ['value' => 'LE PROFESSIONNEL DES FLUIDES']);
-        Setting::updateOrCreate(['key' => 'phone'], ['value' => '+212 666-569562']);
-        Setting::updateOrCreate(['key' => 'whatsapp'], ['value' => '+212666569562']);
-        Setting::updateOrCreate(['key' => 'email'], ['value' => 'contact@phemindustrie.ma']);
-        Setting::updateOrCreate(['key' => 'address'], ['value' => 'Casablanca, Maroc']);
-        Setting::updateOrCreate(['key' => 'about_text'], ['value' => 'Spécialiste au Maroc de la maintenance, réparation et révision de toutes les machines hydrauliques et pneumatiques industrielles.']);
-        Setting::updateOrCreate(['key' => 'about_text_ar'], ['value' => 'شركة متخصصة في صيانة وإصلاح جميع الآلات الهيدروليكية والهوائية الصناعية في المغرب.']);
+        // Settings from official PHEM INDUSTRIE S.A.R.L letterhead
+        Setting::updateOrCreate(['key' => 'site_name'], ['value' => 'PHEM INDUSTRIE S.A.R.L']);
+        Setting::updateOrCreate(['key' => 'phone'], ['value' => '06 61 53 30 25']);
+        Setting::updateOrCreate(['key' => 'fax'], ['value' => '05 22 76 71 17']);
+        Setting::updateOrCreate(['key' => 'whatsapp'], ['value' => '+212661533025']);
+        Setting::updateOrCreate(['key' => 'email'], ['value' => 'phemindustrie20@gmail.com']);
+        Setting::updateOrCreate(['key' => 'address'], ['value' => '75 BD 11 Janvier ETG 1 APT 169 Casablanca']);
+        Setting::updateOrCreate(['key' => 'about_text'], ['value' => 'Achat, vente et commercialisation des fournitures et équipements industrie hydraulique, pneumatiques, mécanique, tournage fraisage.']);
+        Setting::updateOrCreate(['key' => 'about_text_ar'], ['value' => 'شراء وبيع وتسويق المعدات واللوازم الصناعية الهيدروليكية والهوائية والميكانيكية والخراطة والتفريز.']);
+        Setting::updateOrCreate(['key' => 'capital'], ['value' => '100.000 DH']);
+        Setting::updateOrCreate(['key' => 'rc'], ['value' => '379533']);
+        Setting::updateOrCreate(['key' => 'if'], ['value' => '20794461']);
+        Setting::updateOrCreate(['key' => 'patente'], ['value' => '33391116']);
+        Setting::updateOrCreate(['key' => 'ice'], ['value' => '001951579000095']);
+        Setting::updateOrCreate(['key' => 'cnss'], ['value' => '5546281']);
 
         // Restore user products from persistent NoSQL store
         NoSqlStore::syncToDatabase();

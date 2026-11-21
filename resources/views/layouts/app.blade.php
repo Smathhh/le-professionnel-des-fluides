@@ -1,10 +1,17 @@
 @php
-    $rawWhatsapp = preg_replace('/[^0-9]/', '', \App\Models\Setting::get('whatsapp', '212666569562')) ?: '212666569562';
-    $displayPhone = \App\Models\Setting::get('phone', '+212 666-569562');
-    $displayWhatsapp = \App\Models\Setting::get('whatsapp', '+212 666-569562');
-    $email = \App\Models\Setting::get('email', 'contact@phemindustrie.ma');
-    $address = \App\Models\Setting::get('address', 'Casablanca, Maroc');
-    $siteName = \App\Models\Setting::get('site_name', 'LE PROFESSIONNEL DES FLUIDES');
+    $rawWhatsapp = preg_replace('/[^0-9]/', '', \App\Models\Setting::get('whatsapp', '212661533025')) ?: '212661533025';
+    $displayPhone = \App\Models\Setting::get('phone', '06 61 53 30 25');
+    $displayFax = \App\Models\Setting::get('fax', '05 22 76 71 17');
+    $displayWhatsapp = \App\Models\Setting::get('whatsapp', '+212661533025');
+    $email = \App\Models\Setting::get('email', 'phemindustrie20@gmail.com');
+    $address = \App\Models\Setting::get('address', '75 BD 11 Janvier ETG 1 APT 169 Casablanca');
+    $siteName = \App\Models\Setting::get('site_name', 'PHEM INDUSTRIE S.A.R.L');
+    $capital = \App\Models\Setting::get('capital', '100.000 DH');
+    $rc = \App\Models\Setting::get('rc', '379533');
+    $if = \App\Models\Setting::get('if', '20794461');
+    $patente = \App\Models\Setting::get('patente', '33391116');
+    $ice = \App\Models\Setting::get('ice', '001951579000095');
+    $cnss = \App\Models\Setting::get('cnss', '5546281');
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}" class="scroll-smooth">
@@ -153,15 +160,15 @@
     </div>
 
     <!-- Editorial Footer -->
-    <footer class="tf-obsidian text-slate-300 border-t border-white/10 mt-24">
+    <footer class="tf-obsidian text-slate-300 border-t-4 border-[#C81E2B] mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div>
                     <div class="mb-5">
-                        <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" class="h-11 w-auto">
+                        <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" class="h-12 w-auto">
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        {{ \App\Models\Setting::get('about_text', 'Solutions complètes de maintenance industrielle, électricité générale, plomberie et climatisation au Maroc.') }}
+                        {{ \App\Models\Setting::get('about_text', 'Achat, vente et commercialisation des fournitures et équipements industrie hydraulique, pneumatiques, mécanique, tournage fraisage.') }}
                     </p>
                     <div class="inline-flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full font-medium">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -170,7 +177,7 @@
                 </div>
 
                 <div>
-                    <h3 class="text-sky-400 font-bold mb-5 uppercase tracking-[0.14em] text-[11px]">Navigation</h3>
+                    <h3 class="text-rose-400 font-bold mb-5 uppercase tracking-[0.14em] text-[11px]">Navigation</h3>
                     <ul class="space-y-3 text-sm">
                         <li><a href="{{ route('home') }}" class="hover:text-white transition">Accueil</a></li>
                         <li><a href="{{ route('services') }}" class="hover:text-white transition">Nos Services Techniques</a></li>
@@ -182,46 +189,44 @@
                 </div>
 
                 <div>
-                    <h3 class="text-sky-400 font-bold mb-5 uppercase tracking-[0.14em] text-[11px]">Domaines d'Expertise</h3>
+                    <h3 class="text-rose-400 font-bold mb-5 uppercase tracking-[0.14em] text-[11px]">Domaines d'Expertise</h3>
                     <ul class="space-y-3 text-sm text-slate-400">
                         <li>Maintenance Hydraulique Industrielle</li>
                         <li>Maintenance Pneumatique &amp; Air Comprimé</li>
                         <li>Révision de Machines &amp; Vérins</li>
-                        <li>Centrales, Pompes &amp; Distributeurs</li>
+                        <li>Mécanique, Tournage &amp; Fraisage</li>
                         <li>Contrats de Maintenance Préventive</li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="text-sky-400 font-bold mb-5 uppercase tracking-[0.14em] text-[11px]">Contact Direct Maroc</h3>
-                    <div class="space-y-3.5 text-sm">
+                    <h3 class="text-rose-400 font-bold mb-5 uppercase tracking-[0.14em] text-[11px]">Contact Direct Maroc</h3>
+                    <div class="space-y-3 text-sm">
                         <div>
-                            <span class="block text-xs text-slate-500">WhatsApp 24/7</span>
-                            <a href="https://wa.me/{{ $rawWhatsapp }}" target="_blank" class="font-bold text-white hover:text-emerald-400 transition">{{ $displayWhatsapp }}</a>
+                            <span class="block text-xs text-slate-500">GSM / WhatsApp</span>
+                            <a href="https://wa.me/{{ $rawWhatsapp }}" target="_blank" class="font-bold text-white hover:text-emerald-400 transition">{{ $displayPhone }}</a>
                         </div>
                         <div>
-                            <span class="block text-xs text-slate-500">Téléphone</span>
-                            <a href="tel:{{ $rawWhatsapp }}" class="font-bold text-white hover:text-sky-400 transition">{{ $displayPhone }}</a>
+                            <span class="block text-xs text-slate-500">Tél / Fax</span>
+                            <span class="font-bold text-slate-200">{{ $displayFax }}</span>
                         </div>
                         <div>
                             <span class="block text-xs text-slate-500">Courriel</span>
                             <a href="mailto:{{ $email }}" class="text-slate-200 hover:text-white transition">{{ $email }}</a>
                         </div>
                         <div>
-                            <span class="block text-xs text-slate-500">Zone</span>
-                            <span class="text-slate-300">{{ $address }}</span>
+                            <span class="block text-xs text-slate-500">Adresse</span>
+                            <span class="text-slate-300 text-xs">{{ $address }}</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
                 <p>&copy; {{ date('Y') }} {{ $siteName }}. Tous droits réservés.</p>
-                <div class="flex items-center gap-4">
-                    <span>Casablanca • Rabat • Mohammédia • Tanger • Marrakech</span>
-                    <span class="text-slate-700">|</span>
-                    <span class="font-semibold text-slate-300">Maroc</span>
-                </div>
+                <p class="text-[11px] text-slate-500 text-center md:text-right">
+                    CAPITAL DE {{ $capital }} • RC : {{ $rc }} • IF : {{ $if }} • PATENTE : {{ $patente }} • ICE : {{ $ice }} • CNSS : {{ $cnss }}
+                </p>
             </div>
         </div>
     </footer>

@@ -135,11 +135,15 @@
                     </div>
                 </div>
 
-                <div class="px-6 pb-6 pt-0">
+                <div class="px-6 pb-6 pt-0 flex flex-col sm:flex-row gap-2.5">
                     <a href="https://wa.me/{{ $rawWhatsapp }}?text={{ urlencode('Bonjour, je souhaite commander : ' . $product->name . ' (Prix: ' . number_format($product->price, 2) . ' DH)') }}"
                        target="_blank"
-                       class="inline-flex items-center justify-center gap-2 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl transition text-sm">
-                        <span>Commander sur WhatsApp</span>
+                       class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition text-xs sm:text-sm">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="{{ route('products.devis', $product) }}"
+                       class="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#1E2430] hover:bg-[#C81E2B] text-white font-bold py-3 px-4 rounded-xl transition text-xs sm:text-sm">
+                        <span>Générer Devis</span>
                     </a>
                 </div>
             </div>

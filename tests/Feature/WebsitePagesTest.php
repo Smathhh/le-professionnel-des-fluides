@@ -78,4 +78,25 @@ class WebsitePagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonStructure(['products']);
     }
+
+    public function test_product_devis_page_generates_official_quote(): void
+    {
+        $product = \App\Models\Product::first();
+        if (!$product) {
+            $product = \App\Models\Product::create([
+                'name' => 'MANOMETRE TEST',
+                'description' => 'Manometre haute pression',
+                'price' => 220,
+                'category' => 'hydraulique',
+                'is_active' => true,
+                'order' => 1,
+            ]);
+        }
+
+        $response = $this->get('/products/' . $product->id . '/devis?qty=4&client=GREIF+PACKAGING');
+        $response->assertStatus(200);
+        $response->assertSee('PHEM INDUSTRIE S.A.R.L');
+        $response->assertSee('GREIF PACKAGING');
+        $response->assertSee('Total Général H.T');
+    }
 }

@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminSettingsController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{product}/devis', [ProductController::class, 'devis'])->name('products.devis');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
