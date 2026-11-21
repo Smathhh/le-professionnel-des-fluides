@@ -1,0 +1,9 @@
+node_modules
+vendor
+android-app
+android-build
+.git
+emu.log
+storage/logs/*
+public/hot
+tests

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 8,
+        "name": "Sm",
+        "name_ar": null,
+        "description": "Pièce de rechange \/ équipement de haute qualité - Sm",
+        "description_ar": null,
+        "image": "products\/HgvjGjNpBgSgY2ra6oAeNDx4MXz05XqAq3qzwPe8.jpg",
+        "price": "1350.00",
+        "category": "electricite",
+        "is_active": true,
+        "order": 7,
+        "created_at": "2026-11-08T14:26:03.000000Z",
+        "updated_at": "2026-11-08T14:32:18+00:00"
+    }
+]

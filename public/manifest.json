@@ -1,0 +1,19 @@
+{
+  "name": "Phem Industrie - Mobile Admin",
+  "short_name": "Phem Admin",
+  "description": "Application mobile pour ajouter rapidement de nouvelles pièces et matériel directement depuis votre smartphone",
+  "start_url": "/admin/mobile-uploader",
+  "display": "standalone",
+  "background_color": "#0B1E3F",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo-icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
