@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 
     private static final String PREFS_NAME = "PhemAdminPrefs";
     private static final String KEY_SERVER_URL = "server_url";
-    public static final String DEFAULT_TUNNEL_URL = "https://phem-industrie-app.loca.lt";
+    public static final String DEFAULT_PROD_URL = "https://le-professionnel-des-fluides.onrender.com";
     public static final String DEFAULT_LAN_URL = "http://192.168.11.107:8001";
     public static final String DEFAULT_EMULATOR_URL = "http://10.0.2.2:8001";
 
@@ -55,13 +55,16 @@ public class MainActivity extends Activity {
     private TextView txtStatus;
     private ValueCallback<Uri[]> fileUploadCallback;
     private static final int FILE_CHOOSER_REQUEST = 1001;
+    private final Handler timeoutHandler = new Handler(Looper.getMainLooper());
+    private Runnable timeoutRunnable;
+    private boolean pageLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         FrameLayout root = new FrameLayout(this);
-        root.setBackgroundColor(0xFF0F172A); // Slate 900
+        root.setBackgroundColor(0xFF1E2430); // PHEM Charcoal
 
         // Main WebView
         webView = new WebView(this);
@@ -145,7 +148,21 @@ public class MainActivity extends Activity {
 
         view.setWebViewClient(new WebViewClient() {
             @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                pageLoaded = false;
+                startLoadWatchdog();
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                pageLoaded = true;
+                cancelLoadWatchdog();
+                progressBar.setVisibility(View.GONE);
+            }
+
+            @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                cancelLoadWatchdog();
                 progressBar.setVisibility(View.GONE);
                 showSettingsOverlay("Erreur de connexion (" + description + ")");
             }
@@ -212,17 +229,17 @@ public class MainActivity extends Activity {
 
         // 2. Title & Subtitle
         TextView title = new TextView(this);
-        title.setText("PHEM INDUSTRIE");
+        title.setText("PHEM INDUSTRIE S.A.R.L");
         title.setTextColor(0xFFFFFFFF);
-        title.setTextSize(24);
+        title.setTextSize(22);
         title.setGravity(Gravity.CENTER);
         title.setPadding(0, 0, 0, 10);
         layout.addView(title);
 
         TextView subtitle = new TextView(this);
-        subtitle.setText("Connexion au Serveur");
-        subtitle.setTextColor(0xFF38BDF8); // Sky blue
-        subtitle.setTextSize(14);
+        subtitle.setText("Hydraulique & Pneumatique • Connexion Serveur");
+        subtitle.setTextColor(0xFFF43F5E); // PHEM Crimson
+        subtitle.setTextSize(13);
         subtitle.setGravity(Gravity.CENTER);
         subtitle.setPadding(0, 0, 0, 40);
         layout.addView(subtitle);
@@ -230,14 +247,25 @@ public class MainActivity extends Activity {
         // Status message
         txtStatus = new TextView(this);
         txtStatus.setText("Vérification de la connexion...");
-        txtStatus.setTextColor(0xFFF87171); // Red-400
+        txtStatus.setTextColor(0xFFFCA5A5);
         txtStatus.setTextSize(13);
         txtStatus.setGravity(Gravity.CENTER);
         txtStatus.setPadding(20, 20, 20, 30);
         layout.addView(txtStatus);
 
-        // Fast Preset 1: Emulator Mode
-        Button btnEmu = createStyledButton("Mode Émulateur Android (10.0.2.2:8001)", 0xFF7C3AED);
+        // Fast Preset 1: Production Cloud (Render)
+        Button btnProd = createStyledButton("Serveur En Ligne (Production HTTPS)", 0xFFC81E2B);
+        btnProd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveServerUrl(DEFAULT_PROD_URL);
+                hideSettingsAndReload();
+            }
+        });
+        layout.addView(btnProd);
+
+        // Fast Preset 2: Emulator Mode
+        Button btnEmu = createStyledButton("Mode Émulateur Android (10.0.2.2:8001)", 0xFF334155);
         btnEmu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,19 +275,8 @@ public class MainActivity extends Activity {
         });
         layout.addView(btnEmu);
 
-        // Fast Preset 2: Internet Tunnel Mode (Recommended for real phones)
-        Button btnTunnel = createStyledButton("Mode Internet / 4G (Tunnel HTTPS)", 0xFF2563EB);
-        btnTunnel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveServerUrl(DEFAULT_TUNNEL_URL);
-                hideSettingsAndReload();
-            }
-        });
-        layout.addView(btnTunnel);
-
         // Fast Preset 3: Wi-Fi Local Mode
-        Button btnLan = createStyledButton("Mode Réseau Local Wi-Fi (Bureau)", 0xFF0284C7);
+        Button btnLan = createStyledButton("Mode Réseau Local Wi-Fi (Bureau)", 0xFF1E293B);
         btnLan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -351,7 +368,29 @@ public class MainActivity extends Activity {
         if (isEmulator()) {
             return DEFAULT_EMULATOR_URL;
         }
-        return DEFAULT_TUNNEL_URL;
+        return DEFAULT_PROD_URL;
+    }
+
+    private void startLoadWatchdog() {
+        cancelLoadWatchdog();
+        timeoutRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (!pageLoaded) {
+                    webView.stopLoading();
+                    progressBar.setVisibility(View.GONE);
+                    showSettingsOverlay("Délai dépassé — vérifiez le serveur ou choisissez un autre mode.");
+                }
+            }
+        };
+        timeoutHandler.postDelayed(timeoutRunnable, 10000);
+    }
+
+    private void cancelLoadWatchdog() {
+        if (timeoutRunnable != null) {
+            timeoutHandler.removeCallbacks(timeoutRunnable);
+            timeoutRunnable = null;
+        }
     }
 
     private String getServerUrl() {
