@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Phem Mobile Admin</string>
-    <color name="primary">#2563EB</color>
-    <color name="background">#0F172A</color>
+    <string name="app_name">PHEM INDUSTRIE</string>
+    <color name="primary">#C81E2B</color>
+    <color name="background">#1E2430</color>
 </resources>
-
