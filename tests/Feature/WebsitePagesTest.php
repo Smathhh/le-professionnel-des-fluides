@@ -26,7 +26,7 @@ class WebsitePagesTest extends TestCase
         }
     }
 
-    public function test_admin_bar_is_hidden_for_normal_visitors_and_visible_for_admin(): void
+    public function test_admin_bar_is_hidden_for_all_public_pages_even_when_logged_in(): void
     {
         // Guest visitor should NOT see admin shortcuts
         $guestResponse = $this->get('/');
@@ -34,14 +34,14 @@ class WebsitePagesTest extends TestCase
         $guestResponse->assertDontSee('App Mobile Admin');
         $guestResponse->assertDontSee('Espace Admin');
 
-        // Authenticated admin SHOULD see admin shortcuts
+        // Authenticated admin should also not see the deleted top bar on public pages
         $admin = User::where('email', 'admin@phemindustrie.ma')->first();
         $this->assertNotNull($admin);
 
         $adminResponse = $this->actingAs($admin)->get('/');
         $adminResponse->assertStatus(200);
-        $adminResponse->assertSee('App Mobile Admin');
-        $adminResponse->assertSee('Espace Admin');
+        $adminResponse->assertDontSee('App Mobile Admin');
+        $adminResponse->assertDontSee('Espace Admin');
     }
 
     public function test_contact_form_submits_successfully(): void

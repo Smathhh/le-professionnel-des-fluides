@@ -25,42 +25,6 @@
 </head>
 <body class="bg-[#f7f8fa] text-slate-900 antialiased selection:bg-sky-600 selection:text-white">
 
-    <!-- Minimal Contact Strip (Public) + Admin Shortcut (Authenticated Admin Only) -->
-    <div class="bg-[#090d16] text-slate-300 text-xs border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap justify-between items-center gap-2">
-            <div class="flex items-center flex-wrap gap-4 sm:gap-6">
-                <a href="tel:{{ $rawWhatsapp }}" class="inline-flex items-center gap-1.5 hover:text-white transition">
-                    <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                    <span class="font-semibold text-white">{{ $displayPhone }}</span>
-                </a>
-                <a href="https://wa.me/{{ $rawWhatsapp }}?text={{ urlencode('Bonjour, je souhaite un renseignement.') }}" target="_blank" class="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition font-medium">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>WhatsApp : <strong class="font-bold">{{ $displayWhatsapp }}</strong></span>
-                </a>
-                <span class="hidden md:inline-flex items-center gap-1.5 text-slate-400">
-                    <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    Casablanca &amp; Tout le Maroc
-                </span>
-            </div>
-
-            @auth
-                <div class="flex items-center gap-2">
-                    <a href="{{ route('admin.mobile.uploader') }}" class="text-[11px] bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 px-2.5 py-1 rounded-md transition border border-emerald-500/30 font-semibold">
-                        App Mobile Admin
-                    </a>
-                    <a href="{{ route('admin.dashboard') }}" class="text-[11px] bg-white/10 hover:bg-white/20 text-amber-300 px-2.5 py-1 rounded-md transition border border-white/15 font-semibold">
-                        Espace Admin
-                    </a>
-                </div>
-            @endauth
-        </div>
-    </div>
-
     <!-- TasteFlow Floating Glassmorphic Navigation -->
     <div class="sticky top-3 z-40 px-3 sm:px-6 lg:px-8 mt-3">
         <nav class="max-w-7xl mx-auto rounded-2xl bg-white/85 backdrop-blur-xl border border-slate-200/80 shadow-[0_8px_30px_rgb(15,23,42,0.06)] transition duration-200">
