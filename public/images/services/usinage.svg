@@ -12,6 +12,6 @@
   <rect width="400" height="210" fill="url(#grid_usinage)"/>
   <rect x="0" y="204" width="400" height="6" fill="#C81E2B"/>
   <polygon points='80,65 210,65 210,125 80,125' fill='#334155' stroke='#94A3B8' stroke-width='3'/><polygon points='210,80 310,95 210,110' fill='#C81E2B'/><line x1='60' y1='95' x2='330' y2='95' stroke='#FFFFFF' stroke-width='2' stroke-dasharray='6 4'/>
-  <text x="200" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.2" fill="#FFFFFF">USINAGE & FABRICATION MÉCANIQUE</text>
+  <text x="200" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.2" fill="#FFFFFF">USINAGE &amp; FABRICATION MÉCANIQUE</text>
   <text x="200" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="9.5" fill="#94A3B8">Tournage • Fraisage • Pièces Sur Plan</text>
 </svg>

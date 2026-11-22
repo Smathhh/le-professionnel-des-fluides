@@ -12,6 +12,6 @@
   <rect width="400" height="210" fill="url(#grid_mecanique)"/>
   <rect x="0" y="204" width="400" height="6" fill="#C81E2B"/>
   <circle cx='165' cy='95' r='38' fill='none' stroke='#FFFFFF' stroke-width='12' stroke-dasharray='16 8'/><circle cx='238' cy='95' r='28' fill='none' stroke='#C81E2B' stroke-width='10' stroke-dasharray='12 6'/><circle cx='165' cy='95' r='12' fill='#1E2430'/><circle cx='238' cy='95' r='9' fill='#1E2430'/>
-  <text x="200" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.2" fill="#FFFFFF">ENTRETIEN & RÉPARATION MÉCANIQUE</text>
+  <text x="200" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.2" fill="#FFFFFF">ENTRETIEN &amp; RÉPARATION MÉCANIQUE</text>
   <text x="200" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="9.5" fill="#94A3B8">Maintenance Industrielle • Machines</text>
 </svg>
